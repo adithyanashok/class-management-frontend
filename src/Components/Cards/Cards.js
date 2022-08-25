@@ -3,7 +3,7 @@ import './Cards.css'
 const Cards = () => {
   return (
     <div className='card-container' >
-        <div className="card">
+        <div className="cards">
             <div className="img">
                 <img src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg" alt="" />
             </div>
@@ -13,7 +13,7 @@ const Cards = () => {
             </div>
         </div>
 
-        <div className="card">
+        <div className="cards">
             <div className="img">
                 <img src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg" alt="" />
             </div>
@@ -23,7 +23,7 @@ const Cards = () => {
             </div>
         </div>
 
-        <div className="card">
+        <div className="cards">
             <div className="img">
                 <img src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg" alt="" />
             </div>
@@ -33,7 +33,7 @@ const Cards = () => {
             </div>
         </div>
 
-        <div className="card">
+        <div className="cards">
             <div className="img">
                 <img src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg" alt="" />
             </div>
