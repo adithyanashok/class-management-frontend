@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './Timetable.css'
 import Table from 'react-bootstrap/Table';
 import Navbar from "../../Components/Navbar/Navbar";
+import axios from 'axios'
 const Timetable = () => {
+  const [timetable, setTable] = useState([])
+  useEffect(() => {
+    const fetchTimetable = async (req, res, next) => {
+      try{
+        const res = await axios.get('http://localhost:8800/api/timetable')
+        setTable(res.data[0].timetable)
+        console.log(res.data[0].timetable)
+
+      }catch(err) {
+        console.log(err)
+      }
+    }
+    fetchTimetable()
+  }, [])
   return (
     <>
     <Navbar/>
@@ -10,23 +25,27 @@ const Timetable = () => {
       <Table striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
+          <th>Day</th>
+          <th>1st Period</th>
+          <th>2nd Period</th>
+          <th>3rd Period</th>
+          <th>4th Period</th>
+          <th>5th Period</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Java</td>
-          <td>Javascript</td>
-          <td>Python</td>
-          <td>NodeJs</td>
-          <td>Django</td>
+         {
+          timetable.map((table) => (
+            <tr>
+          <td>{table.day}</td>
+          <td>{table.FirP}</td>
+          <td>{table.SecP}</td>
+          <td>{table.ThirP}</td>
+          <td>{table.ForP}</td>
+          <td>{table.FifP}</td>
         </tr>
+          ))
+        } 
       </tbody>
     </Table>
     </div>
