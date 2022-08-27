@@ -8,13 +8,13 @@ const Notes = () => {
     <div className='notes-container' >
         <div className="cards">
             <div className="img">
-                <img src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg" alt="" />
+                <embed src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg" alt="" />
             </div>
             <div className="details">
                 <p>Events</p>
                 <button>Enter</button>
             </div>
-        </div>
+        </div> 
     </div>
     </>
   )

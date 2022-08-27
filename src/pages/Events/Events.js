@@ -1,22 +1,41 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import './Events.css'
 const Events = () => {
+  const [events, setEvents] = useState([])
+  console.log(events)
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try{
+        const res = await axios.get('http://localhost:8800/api/events/')
+        setEvents(res.data)
+      }catch(err){
+        console.log(err)
+      }
+    }
+    fetchEvents()
+  }, [])
   return (
     <>
     <Navbar/>
     <div className='event-container' >
-        <div className="event-wrapper">
+      {
+        events.map((event) => (
+          <div className="event-wrapper">
             <div className="event-poster">
-                <img src="https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg?w=2000" alt="" />
+                <img src={event.img} alt="" />
             </div>
             <div className="event-details">
-                <h1>Music Event</h1>
-                <p className='desc' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum minima in consequatur tempora, totam officia fugit quidem. Laborum ipsum numquam expedita in, ullam consequuntur et veniam commodi, deserunt laboriosam necessitatibus.</p>
-                <p className='fee' >$20</p>
+                <h1>{event.name}</h1>
+                <p className='desc' >{event.desc}</p>
+                <p className='fee' >${event.price}</p>
                 <button>Pay</button>
             </div>
         </div>
+        ))
+      }
+        
     </div>
     </>
   )
