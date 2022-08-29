@@ -3,7 +3,11 @@ import './Timetable.css'
 import Table from 'react-bootstrap/Table';
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from 'axios'
+import { useSelector } from 'react-redux'
+import { Link } from "react-router-dom";
 const Timetable = () => {
+  const teacher = useSelector((state) => state.user.currentUser.teacher)
+
   const [timetable, setTable] = useState([])
   useEffect(() => {
     const fetchTimetable = async (req, res, next) => {
@@ -21,6 +25,8 @@ const Timetable = () => {
   return (
     <>
     <Navbar/>
+    {teacher && <Link to="add-timetable" className="add-button" >Add Timetable</Link>}
+
     <div className="table-container" >
       <Table striped bordered hover>
       <thead>

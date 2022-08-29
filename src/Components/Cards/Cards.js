@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Cards.css'
+import { useSelector } from 'react-redux'
+
 const Cards = () => {
+  const teacher = useSelector((state) => state.user.currentUser.teacher)
+
   return (
     <div className='card-container' >
         <div className="cards">
@@ -10,7 +14,7 @@ const Cards = () => {
             </div>
             <div className="details">
                 <p>Attendance</p>
-                <Link to='/attendance' ><button>Enter</button></Link>
+                <Link to="/attendance" ><button>Enter</button></Link>
             </div>
         </div>
 

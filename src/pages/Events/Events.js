@@ -2,7 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import './Events.css'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
 const Events = () => {
+  const teacher = useSelector((state) => state.user.currentUser.teacher)
   const [events, setEvents] = useState([])
   console.log(events)
   useEffect(() => {
@@ -19,10 +24,11 @@ const Events = () => {
   return (
     <>
     <Navbar/>
+    {teacher && <Link to="/add-event" className='add-button' >Add a Event</Link>}
     <div className='event-container' >
       {
         events.map((event) => (
-          <div className="event-wrapper">
+          <div key={event._id} className="event-wrapper">
             <div className="event-poster">
                 <img src={event.img} alt="" />
             </div>

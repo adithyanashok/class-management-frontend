@@ -5,8 +5,16 @@
     color:#fff;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
-.logo{
-    text-align: center;
+.left{
+    display: flex;
+    gap: 10px;
+    margin-right: 13px;
+}
+.left h3{
+    font-size: 20px;
+    border: 1px solid;
+    padding: 5px;
+    cursor: pointer;
 }

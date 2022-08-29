@@ -3,3 +3,15 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
+.add-button{
+    padding: 10px;
+    border: none;
+    color: white;
+    width: 24%;
+    background-color: #063c7a;
+    margin: 3px 61px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
