@@ -15,6 +15,11 @@ import {
 } from "react-router-dom";
 import Admin from "./pages/Admin";
 import AddEvents from "./pages/Events/AddEvents";
+import AddNotes from "./pages/Notes/AddNotes";
+
+import AddStudent from "./pages/Students/AddStudent";
+import Students from "./pages/Students/Students";
+import Success from "./pages/Success/Success";
 
   axios.defaults.withCredentials = true
 
@@ -32,7 +37,13 @@ function App() {
           <Route path='events' element={<Events/>} />
           <Route path='Notes' element={<Notes/>} />
           <Route path='timetable' element={<Timetable/>} />
+          <Route path='students' element={<Students/>} />
+          <Route path='add-student' element={<AddStudent/>} />
           <Route path='add-event' element={<AddEvents/>} />
+          <Route path='add-note' element={<AddNotes/>} />
+          <Route path='success' element={<Success/>} />
+
+
           </>)}
         </Routes>
       </BrowserRouter>

@@ -8,6 +8,15 @@ const Cards = () => {
 
   return (
     <div className='card-container' >
+        {teacher && <div className="cards">
+            <div className="img">
+                <img src="https://cdn-ejfid.nitrocdn.com/HahWXuLfKZbQhJjlzjiUHtqlxVqcJYyP/assets/static/optimized/rev-6105aeb/wp-content/uploads/2020/12/topic-faculty-active-engaged-students-1.png" alt="" />
+            </div>
+            <div className="details">
+                <p>Students</p>
+                <Link to="/students" ><button>Enter</button></Link>
+            </div>
+        </div>}
         <div className="cards">
             <div className="img">
                 <img src="https://helen.edu.vn/wp-content/uploads/2021/09/smart-attendance-management-systemt-2-1024x576.jpeg" alt="" />

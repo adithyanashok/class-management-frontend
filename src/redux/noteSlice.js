@@ -1,32 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  currentEvent: null,
+  currentNote: null,
   isFetching: false,
   error: false
 }
 
-export const eventSlice = createSlice({
-  name: 'event',
+export const noteSlice = createSlice({
+  name: 'note',
   initialState,
   reducers: {
-    addEventStart: (state) => {
+    addNoteStart: (state) => {
       state.isFetching = true;
       state.error = false;
     },
-    addEventSuccess: (state, action) => {
+    addNoteSuccess: (state, action) => {
       state.isFetching = false;
-      state.currentEvent = action.payload
+      state.currentEvent.push(action.payload);
     },
-    addEventFailure: (state) => {
+    addNoteFailure: (state) => {
       state.isFetching = false;
       state.error = true;
     },
-    
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addEventStart, addEventSuccess, addEventFailure } = eventSlice.actions
+export const { addNoteStart, addNoteSuccess, addNoteFailure } = noteSlice.actions
 
-export default eventSlice.reducer
+export default noteSlice.reducer

@@ -1,8 +1,9 @@
 .card-container{
     display: flex;
+    padding:5px;
     flex-wrap: wrap;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .cards{
     width: 265px;

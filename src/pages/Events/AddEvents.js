@@ -62,6 +62,7 @@ const AddEvents = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const events = { ...inputs, img: downloadURL };
           addEvents(events, dispatch);
+          navigate("/events")
         });
       }
     );
