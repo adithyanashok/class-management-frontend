@@ -1,31 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentUser: null,
   isFetching: false,
-  error: false
-}
+  error: false,
+};
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     loginStart: (state) => {
-        state.isFetching = true
+      state.isFetching = true;
     },
     loginSuccess: (state, action) => {
-      state.isFetching = false
-      state.currentUser = action.payload
-      state.error = false
+      state.isFetching = false;
+      state.currentUser = action.payload;
+      state.error = false;
     },
     loginFailure: (state) => {
-      state.isFetching = false
-      state.error = true
+      state.isFetching = false;
+      state.error = true;
     },
     logout: (state) => {
-        state.currentUser = null;
-        state.isFetching = false
-        state.error = false
+      state.currentUser = null;
+      state.isFetching = false;
+      state.error = false;
     },
     addEventStart: (state) => {
       state.isFetching = true;
@@ -40,9 +40,14 @@ export const userSlice = createSlice({
       state.error = true;
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { loginStart, loginSuccess, loginFailure, logout } = userSlice.actions
+export const {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  logout,
+} = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

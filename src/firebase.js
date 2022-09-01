@@ -10,9 +10,9 @@ const firebaseConfig = {
   projectId: "class-management-5fcf5",
   storageBucket: "class-management-5fcf5.appspot.com",
   messagingSenderId: "686666279967",
-  appId: "1:686666279967:web:fd907d68cc325f6c4d792a"
+  appId: "1:686666279967:web:fd907d68cc325f6c4d792a",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app
+export default app;

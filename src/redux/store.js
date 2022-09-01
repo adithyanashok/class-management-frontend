@@ -1,7 +1,8 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import userSlice from './userSlice'
-import eventSlice from './eventSlice'
-import noteSlice from './noteSlice'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import userSlice from "./userSlice";
+import eventSlice from "./eventSlice";
+import noteSlice from "./noteSlice";
+import AnnouncementSlice from "./announcementSlice";
 
 import {
   persistStore,
@@ -12,17 +13,21 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1,
   storage,
-}
- const rootReducer = combineReducers({user: userSlice, event: eventSlice, note: noteSlice})
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+};
+const rootReducer = combineReducers({
+  user: userSlice,
+  event: eventSlice,
+  note: noteSlice,
+  announcement: AnnouncementSlice,
+});
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -32,6 +37,5 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-})
-export const persistor = persistStore(store)
-
+});
+export const persistor = persistStore(store);

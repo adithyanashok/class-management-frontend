@@ -1,38 +1,51 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import './Login.css'
-import {useDispatch} from 'react-redux'
-import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import React, { useState } from "react";
+import "./Login.css";
+import { useDispatch, useSelector } from "react-redux";
+import { loginFailure, loginStart, loginSuccess } from "../../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const [studentId, setStudentId] = useState("")
-  const [password, setPassword] = useState("")
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [studentId, setStudentId] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { error } = useSelector((state) => state.user);
   const handleLogin = async (e) => {
-    dispatch(loginStart())
-    e.preventDefault()
-    try{
-      const res = await axios.post('http://localhost:8800/api/auth/studentlogin', {studentId, password})
-      console.log(res.data)
-      dispatch(loginSuccess(res.data))
-      navigate("/")
+    dispatch(loginStart());
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8800/api/auth/studentlogin",
+        { studentId, password }
+      );
+      dispatch(loginSuccess(res.data));
+      navigate("/");
     } catch (err) {
-      console.log(err)
-      dispatch(loginFailure())
+      dispatch(loginFailure());
     }
-  }
+  };
 
   return (
-    <div className='login-container' >
-            <div className="login-inputs">
-                <h1 className="login-text">Enter Details</h1>
-                <input name='studentId' type="text" placeholder='Enter ID' onChange={(e) => setStudentId(e.target.value)} />
-                <input name='password' type="password" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
-                <button onClick={handleLogin} >Login</button>
-            </div>
+    <div className="login-container">
+      <div className="login-inputs">
+        <h1 className="login-text">Enter Details</h1>
+        {error && <span>Wrong StudentId or Password</span>}
+        <input
+          name="studentId"
+          type="text"
+          placeholder="Enter ID"
+          onChange={(e) => setStudentId(e.target.value)}
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Enter Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

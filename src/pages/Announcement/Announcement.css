@@ -1,0 +1,57 @@
+.ann-div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 55px;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+.announcement-wrapper{
+    border: 1px solid #063c7a;
+    height: auto;
+    padding: 10px;
+}
+.announcement-wrapper h4{
+    font-size: 17px;
+    font-weight: 600;
+}
+.announcement-wrapper p{
+    font-size: 13px;
+    font-weight: 500;
+}
+.add-announcement {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ann-inputs{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #063c7a;
+    width: 48%;
+    padding: 16px;
+    height: 270px;
+    gap: 9px;
+}
+.ann-inputs input{
+    padding: 9px;
+    border: 0.5px solid #063c7a;
+    outline: none;
+}
+.ann-inputs textarea{
+    border: 0.5px solid #063c7a;
+    outline: none;
+}
+.ann-inputs button{
+    padding: 5px;
+    background-color: #063c7a;
+    border: none;
+    color: white;
+}
+.ann-inputs h3{
+    font-size: 29px;
+    font-weight: bold;
+}

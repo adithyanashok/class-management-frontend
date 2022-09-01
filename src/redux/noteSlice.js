@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentNote: null,
   isFetching: false,
-  error: false
-}
+  error: false,
+};
 
 export const noteSlice = createSlice({
-  name: 'note',
+  name: "note",
   initialState,
   reducers: {
     addNoteStart: (state) => {
@@ -16,16 +16,20 @@ export const noteSlice = createSlice({
     },
     addNoteSuccess: (state, action) => {
       state.isFetching = false;
-      state.currentEvent.push(action.payload);
+      state.currentNote = action.payload;
     },
     addNoteFailure: (state) => {
       state.isFetching = false;
       state.error = true;
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { addNoteStart, addNoteSuccess, addNoteFailure } = noteSlice.actions
+export const {
+  addNoteStart,
+  addNoteSuccess,
+  addNoteFailure,
+} = noteSlice.actions;
 
-export default noteSlice.reducer
+export default noteSlice.reducer;

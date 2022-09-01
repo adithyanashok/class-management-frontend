@@ -32,16 +32,18 @@ const Events = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await axios.post("http://localhost:8800/api/checkout/payment", {
-          tokenId: stripeToken.id,
-          amount: event*100,
-        });
+        const res = await axios.post(
+          "http://localhost:8800/api/checkout/payment",
+          {
+            tokenId: stripeToken.id,
+            amount: event * 100,
+          }
+        );
         navigate("/success", { state: { data: res.data } });
       } catch {}
     };
     makeRequest();
   }, [stripeToken, event, navigate]);
-  console.log(event);
 
   return (
     <>
@@ -64,7 +66,7 @@ const Events = () => {
               <StripeCheckout
                 name={event.name} // the pop-in header title
                 description={`Pay $${event.price}`} // the pop-in header subtitle
-                image="https://www.vidhub.co/assets/logos/vidhub-icon-2e5c629f64ced5598a56387d4e3d0c7c.png" // the pop-in header image (default none)
+                image={event.img} // the pop-in header image (default none)
                 amount={event.price * 100}
                 billingAddress
                 shippingAddress

@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useState } from "react";
-import axios from "axios";
 import {
   getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import app from '../../firebase'
+import app from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addEvents } from "../../redux/apiCalls";
@@ -17,7 +16,7 @@ const AddEvents = () => {
   const [inputs, setInputs] = useState({});
   const [img, setImg] = useState(null);
   const navigate = useNavigate();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
@@ -62,7 +61,7 @@ const AddEvents = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const events = { ...inputs, img: downloadURL };
           addEvents(events, dispatch);
-          navigate("/events")
+          navigate("/events");
         });
       }
     );
