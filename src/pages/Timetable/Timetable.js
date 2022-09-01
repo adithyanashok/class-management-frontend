@@ -11,7 +11,7 @@ const Timetable = () => {
   useEffect(() => {
     const fetchTimetable = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/timetable");
+        const res = await axios.get("https://managetheclass.herokuapp.com/api/timetable");
         setTable(res.data[0].timetable);
       } catch (err) {
         console.log(err);
