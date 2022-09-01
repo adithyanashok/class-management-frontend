@@ -4,13 +4,13 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./Announcement.css";
 import { format } from "date-fns";
 import "../../App.css";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 const Announcement = () => {
   const [message, setMessage] = useState([]);
   useEffect(() => {
     const fetchMessage = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/announcement");
+        const res = await axiosInstance.get("/announcement");
         setMessage(res.data);
       } catch (err) {
         console.log(err);

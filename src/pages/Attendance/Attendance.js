@@ -2,6 +2,7 @@ import axios from "axios";
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
+import { axiosInstance } from "../../config";
 import "./Attendance.css";
 const Attendance = () => {
   const [attendance, setAttendance] = useState([]);
@@ -9,7 +10,7 @@ const Attendance = () => {
   console.log(name);
   const handleClick = async () => {
     try {
-      const res = await axios.post("http://localhost:8800/api/attendance", {
+      const res = await axiosInstance.post("/attendance", {
         name,
       });
       console.log(res.data)
@@ -21,7 +22,7 @@ const Attendance = () => {
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/attendance");
+        const res = await axiosInstance.get("/attendance");
         setAttendance(res.data);
       } catch (err) {
         console.log(err);

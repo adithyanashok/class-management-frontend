@@ -1,6 +1,6 @@
 import { addEventStart, addEventSuccess, addEventFailure } from "./eventSlice";
 import { addNoteStart, addNoteSuccess, addNoteFailure } from "./noteSlice";
-import axios from "axios";
+import { axiosInstance } from "../config";
 import {
   addAnnouncementFailure,
   addAnnouncementStart,
@@ -29,7 +29,7 @@ import {
 export const addEvents = async (events, dispatch) => {
   dispatch(addEventStart());
   try {
-    const res = await axios.post(`http://localhost:8800/api/events`, events);
+    const res = await axiosInstance.post(`/events`, events);
     console.log(res.data);
     dispatch(addEventSuccess(res.data));
   } catch (err) {
@@ -40,7 +40,7 @@ export const addEvents = async (events, dispatch) => {
 export const addNotes = async (notes, dispatch) => {
   dispatch(addNoteStart());
   try {
-    const res = await axios.post(`http://localhost:8800/api/notes`, notes);
+    const res = await axiosInstance.post(`/notes`, notes);
     dispatch(addNoteSuccess(res.data));
   } catch (err) {
     dispatch(addNoteFailure());
@@ -49,8 +49,8 @@ export const addNotes = async (notes, dispatch) => {
 export const addAnnouncement = async (announcement, dispatch) => {
   dispatch(addAnnouncementStart());
   try {
-    const res = await axios.post(
-      `http://localhost:8800/api/announcement`,
+    const res = await axiosInstance.post(
+      `/announcement`,
       announcement
     );
     dispatch(addAnnouncementSuccess(res.data));

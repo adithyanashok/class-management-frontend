@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./Timetable.css";
 import Table from "react-bootstrap/Table";
 import Navbar from "../../Components/Navbar/Navbar";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../config";
 const Timetable = () => {
   const teacher = useSelector((state) => state.user.currentUser.teacher);
   const [timetable, setTable] = useState([]);
   useEffect(() => {
     const fetchTimetable = async () => {
       try {
-        const res = await axios.get("https://managetheclass.herokuapp.com/api/timetable");
+        const res = await axiosInstance.get("/timetable");
         setTable(res.data[0].timetable);
       } catch (err) {
         console.log(err);

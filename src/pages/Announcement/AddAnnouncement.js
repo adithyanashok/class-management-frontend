@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 
 const AddAnnouncement = () => {
   const [name, setName] = useState("");
@@ -14,8 +14,8 @@ const AddAnnouncement = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8800/api/announcement",
+      const res = await axiosInstance.post(
+        "/announcement",
         announcement
       );
       console.log(res.data)

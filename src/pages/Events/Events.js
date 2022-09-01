@@ -5,6 +5,7 @@ import "./Events.css";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
+import { axiosInstance } from "../../config";
 
 const KEY =
   "pk_test_51LUSnZA4Kwx24aJ8WNodncKZ177vuYvPP3dxjO3nrgtaUjZysZ1b39I9D665hrJZHZCCavO71QpT0tBw7cjeQohi00ojuX40Ne";
@@ -21,7 +22,7 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/events/");
+        const res = await axiosInstance.get("/events");
         setEvents(res.data);
       } catch (err) {
         console.log(err);

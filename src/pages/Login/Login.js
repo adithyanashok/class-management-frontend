@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
 import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../../redux/userSlice";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../config";
 const Login = () => {
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
@@ -14,8 +14,8 @@ const Login = () => {
     dispatch(loginStart());
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8800/api/auth/studentlogin",
+      const res = await axiosInstance.post(
+        "/auth/studentlogin",
         { studentId, password }
       );
       dispatch(loginSuccess(res.data));

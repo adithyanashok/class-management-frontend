@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./Students.css";
 import Table from "react-bootstrap/Table";
 import Navbar from "../../Components/Navbar/Navbar";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../config";
 const Students = () => {
   const teacher = useSelector((state) => state.user.currentUser.teacher);
   const [student, setStudent] = useState([]);
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/students");
+        const res = await axiosInstance.get("/students");
         setStudent(res.data);
       } catch (err) {
         console.log(err);

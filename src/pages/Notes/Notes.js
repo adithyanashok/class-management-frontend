@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./Notes.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
@@ -11,7 +11,7 @@ const Notes = () => {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/notes");
+        const res = await axiosInstance.get("/notes");
         setNotes(res.data);
       } catch (err) {
         console.log(err);
