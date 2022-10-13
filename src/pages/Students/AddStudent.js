@@ -23,7 +23,7 @@ const AddStudent = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8800/api/auth/createstudent",
+        "http://localhost:5000/api/auth/createstudent",
         students
       );
       console.log(res.data)

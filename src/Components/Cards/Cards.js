@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Cards.css";
 import { useSelector } from "react-redux";
+import Attendance from '../../images/attendance.png'
+import Events from '../../images/Events.jpg'
+import Notes from '../../images/note-taking.png'
+import Students from '../../images/students.jpg'
+import Timetable from '../../images/timetable.jpg'
 
 const Cards = () => {
   const teacher = useSelector((state) => state.user.currentUser.teacher);
@@ -12,7 +17,7 @@ const Cards = () => {
         <div className="cards">
           <div className="img">
             <img
-              src="https://cdn-ejfid.nitrocdn.com/HahWXuLfKZbQhJjlzjiUHtqlxVqcJYyP/assets/static/optimized/rev-6105aeb/wp-content/uploads/2020/12/topic-faculty-active-engaged-students-1.png"
+              src={Students}
               alt=""
             />
           </div>
@@ -27,7 +32,7 @@ const Cards = () => {
       <div className="cards">
         <div className="img">
           <img
-            src="https://helen.edu.vn/wp-content/uploads/2021/09/smart-attendance-management-systemt-2-1024x576.jpeg"
+            src={Attendance}
             alt=""
           />
         </div>
@@ -42,7 +47,7 @@ const Cards = () => {
       <div className="cards">
         <div className="img">
           <img
-            src="https://itechindia.co/wp-content/uploads/2019/11/Blog-Image-3.png"
+            src={Timetable}
             alt=""
           />
         </div>
@@ -57,7 +62,7 @@ const Cards = () => {
       <div className="cards">
         <div className="img">
           <img
-            src="https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png"
+            src={Notes}
             alt=""
           />
         </div>
@@ -72,7 +77,7 @@ const Cards = () => {
       <div className="cards">
         <div className="img">
           <img
-            src="https://static-prod.adweek.com/wp-content/uploads/2018/06/Events.jpg"
+            src={Events}
             alt=""
           />
         </div>
