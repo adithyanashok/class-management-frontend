@@ -26,7 +26,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-           {currentUser && ( 
+           {/* {currentUser && (  */}
             <>
               <Route index element={<Home />} />
               <Route path="attendance" element={<Attendance />} />
@@ -41,7 +41,7 @@ function App() {
               <Route path="announcement" element={<Announcement />} />
               <Route path="add-announcement" element={<AddAnnouncement />} />
             </>
-          )} 
+          {/* )}  */}
         </Routes>
       </BrowserRouter>
     </div>
