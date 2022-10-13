@@ -7,7 +7,7 @@ import Events from "./pages/Events/Events";
 import Attendance from "./pages/Attendance/Attendance";
 import Notes from "./pages/Notes/Notes";
 import axios from "axios";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEvents from "./pages/Events/AddEvents";
 import AddNotes from "./pages/Notes/AddNotes";
@@ -20,13 +20,13 @@ import AddAnnouncement from "./pages/Announcement/AddAnnouncement";
 axios.defaults.withCredentials = true;
 
 function App() {
-  // const { currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-           {/* {currentUser && (  */}
+            {currentUser && (  
             <>
               <Route index element={<Home />} />
               <Route path="attendance" element={<Attendance />} />
@@ -41,7 +41,7 @@ function App() {
               <Route path="announcement" element={<Announcement />} />
               <Route path="add-announcement" element={<AddAnnouncement />} />
             </>
-          {/* )}  */}
+          )} 
         </Routes>
       </BrowserRouter>
     </div>
