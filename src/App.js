@@ -25,10 +25,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route index element={<Login />} />
             {currentUser && (  
-            <>
-              <Route index element={<Home />} />
+              <>
+              <Route path="/home" element={<Home />} />
               <Route path="attendance" element={<Attendance />} />
               <Route path="events" element={<Events />} />
               <Route path="add-event" element={<AddEvents />} />
