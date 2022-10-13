@@ -7,7 +7,7 @@ import { axiosInstance } from "../../config";
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
-  const teacher = useSelector((state) => state.user.currentUser.teacher);
+  const teacher = useSelector((state) => state.user?.currentUser?.teacher);
   useEffect(() => {
     const fetchNotes = async () => {
       try {

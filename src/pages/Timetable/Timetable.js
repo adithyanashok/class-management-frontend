@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../config";
 const Timetable = () => {
-  const teacher = useSelector((state) => state.user.currentUser.teacher);
+  const teacher = useSelector((state) => state.user?.currentUser?.teacher);
   const [timetable, setTable] = useState([]);
   useEffect(() => {
     const fetchTimetable = async () => {

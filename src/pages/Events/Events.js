@@ -11,8 +11,8 @@ const KEY =
   "pk_test_51LUSnZA4Kwx24aJ8WNodncKZ177vuYvPP3dxjO3nrgtaUjZysZ1b39I9D665hrJZHZCCavO71QpT0tBw7cjeQohi00ojuX40Ne";
 const Events = () => {
   const navigate = useNavigate();
-  const event = useSelector((state) => state.event.currentEvent?.price);
-  const teacher = useSelector((state) => state.user.currentUser.teacher);
+  const event = useSelector((state) => state.event?.currentEvent?.price);
+  const teacher = useSelector((state) => state.user?.currentUser?.teacher);
   const [events, setEvents] = useState([]);
   const [stripeToken, setStripeToken] = useState(null);
   const onToken = (token) => {
