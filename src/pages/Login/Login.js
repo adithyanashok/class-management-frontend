@@ -19,7 +19,7 @@ const Login = () => {
         { studentId, password }
       );
       dispatch(loginSuccess(res.data));
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       dispatch(loginFailure());
     }
