@@ -31,7 +31,7 @@ const Navbar = () => {
         <Link style={{ color: "inherit" }} to="/announcement">
           <NotificationsIcon />
         </Link>
-        <h3>{currentUser.name}</h3>
+        <h3>{currentUser?.name}</h3>
         <h3 onClick={logoutClick}>Logout</h3>
       </div>
     </div>
