@@ -9,9 +9,9 @@ import Students from '../../images/students.jpg'
 import Timetable from '../../images/timetable.jpg'
 
 const Cards = () => {
-  const teacher = useSelector((state) => state.user.currentUser.teacher);
+  const teacher = useSelector((state) => state.user?.currentUser?.teacher);
 
-  return (
+  return ( 
     <div className="card-container">
       {teacher && (
         <div className="cards">
